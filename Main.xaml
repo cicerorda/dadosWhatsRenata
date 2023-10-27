@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,9973" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,1889" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="39">
+    <scg:List x:TypeArguments="x:String" Capacity="78">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -40,6 +40,9 @@
       <x:String>Microsoft.Exchange.WebServices.Data</x:String>
       <x:String>UiPath.Mail.Exchange</x:String>
       <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -84,9 +87,10 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="862,9908" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="558,1348" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="si:FileInfo" Name="downloadFile" />
     </Sequence.Variables>
@@ -95,7 +99,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" sap:VirtualizedContainerService.HintSize="800,81" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" sap:VirtualizedContainerService.HintSize="496,81" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -104,13 +108,13 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,191" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[CurrentFile.FullName]" />
+            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="388,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[CurrentFile.FullName]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEachFileX.Body>
@@ -121,12 +125,12 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEachFileX>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LogarNewcon.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="800,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="LogarNewcon.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LogarNewcon.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="496,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="LogarNewcon.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard sap2010:Annotation.AnnotationText="Emitir relatorio" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: NewCon" sap:VirtualizedContainerService.HintSize="800,3283" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V2">
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="Emitir relatorio" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: NewCon" sap:VirtualizedContainerService.HintSize="496,83" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -186,7 +190,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <Sequence sap:VirtualizedContainerService.HintSize="450,950" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                    <Sequence sap:VirtualizedContainerService.HintSize="450,923" sap2010:WorkflowViewState.IdRef="Sequence_25">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -239,12 +243,12 @@
               </sap:WorkflowViewStateService.ViewState>
               <uix:NClick ClickType="Single" DisplayName="Click '-- Selecione'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V3">
                 <uix:NClick.Target>
-                  <uix:TargetAnchorable DesignTimeRectangle="108, 48, 201, 22" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'-- Selecione'" FullSelectorArgument="&lt;wnd cls='TVComboBox' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TVComboBox' /&gt;" Guid="1a1771d3-48d2-41a2-86e2-d24713a68314" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAM0AAAAaCAYAAAAUh9j+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANFSURBVHhe7ZjBleowDEWphCbSC4s0k0LYpAFWVJAiKIAO6MATGcs8O1LscMzMhKPFPSGybFm2XjT/Hx6PhzMMox4TjWFsJIrmcrkYhrGCKJr7/W4YhoCJxjA2UiWa4/FoT3vu/tmKomhaBzSMvVPVaQxjz1inMYw/5jOdZuzd4XCI9KPgg0yD67rBTdLYGu/O+w1ob3AGLzo3jK33PbmhqzhnZrG3eU+T4Pcl/P9O4y+kd2PyXriU/1z8DZiGznXDJI614Q3R4HnTR+6Lz7817TtNSQDYhfrxacM50jj7sJ1FCfOoMHleLFAa73vX8zxcT4vDJHlQUQbhe/u85lykz1ijL9gkbsZCNLx2thbuQ8wnI/qENaJoNuUG78l+nmes7oN8OQZ+JMXYT1Ev19HsdfnXUvrwX69X0U5IY+07zczY80HAYRLZZZGfv+jk0oTx+zgX/qtb+QOlC8F5MRb4LuzhtxoHSHwy0STro5heayK030XBxX1zXtAtvF3Ih+fzGpjPfN7JWQa/cm4zVOiL/QQ/cR+F+wjrxti0fhQQ3INmV+O253a7udPp5M7n82KMbDRGPmhv32kSKGEQD36FAr6Y+LBL4/n6OC8eviBGb4fC1+LwuoQ2F+3a74xV0cCc6KflE94T39ynNrfER8iNqDpXQIuN8WA91V6R/xZKH35JOJpgiKpOQ5uOBzEnk7/jghJaMUT4Ekrjmr3qcjPRlPadzIWvHdq13xm/LppNua3Yq84VKMWmeaFuknxye0X+ZMMazN/RtwYUzppgiPadhhKOrZXI/+wIxZfbuYik8bxFUwz2j/OEds7jcR9gF+MAuCb645ra74xV0Uj78PbCnycLn8IZ53OlveZ2dR8r9yHEpvxzEdB5aHY97nvU/hODhbMmGKKq0+CEGvxhsOpnkoLxosq+CHhZ0jj7sB2LOczDmLFIcF0UDb1rcYD49fL/OA5zcU3td8aqaCr+I2BR9AufeX0URyk3ba+CXd0H+XKMWOAzSuykE0AMzV6T/ycgsawJhmjfaYx6tOI1mvLOh3+Nj3QaoxITzS6xTmN8PX/Waexpzz0/W2KdxjA2YqIxjI2oojEMQ2chGsMw6jDRGMYmHu4H8UDBIZO/2g0AAAAASUVORK5CYII=" InformativeScreenshot="efbe2e6cdf77ecc4033395d78275d649.png" ScopeSelectorArgument="&lt;wnd app='cnp3.exe' cls='TfrmConCmRelatorioPersonalizadoWF' title='Acompanhamento Workflow - 01/06/2023  13:48:34' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                  <uix:TargetAnchorable DesignTimeRectangle="108, 48, 201, 22" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'-- Selecione'" FullSelectorArgument="&lt;wnd cls='TVComboBox' /&gt;" FuzzySelectorArgument="&lt;wnd cls='TVComboBox' /&gt;" Guid="1a1771d3-48d2-41a2-86e2-d24713a68314" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAM0AAAAaCAYAAAAUh9j+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANFSURBVHhe7ZjBleowDEWphCbSC4s0k0LYpAFWVJAiKIAO6MATGcs8O1LscMzMhKPFPSGybFm2XjT/Hx6PhzMMox4TjWFsJIrmcrkYhrGCKJr7/W4YhoCJxjA2UiWa4/FoT3vu/tmKomhaBzSMvVPVaQxjz1inMYw/5jOdZuzd4XCI9KPgg0yD67rBTdLYGu/O+w1ob3AGLzo3jK33PbmhqzhnZrG3eU+T4Pcl/P9O4y+kd2PyXriU/1z8DZiGznXDJI614Q3R4HnTR+6Lz7817TtNSQDYhfrxacM50jj7sJ1FCfOoMHleLFAa73vX8zxcT4vDJHlQUQbhe/u85lykz1ijL9gkbsZCNLx2thbuQ8wnI/qENaJoNuUG78l+nmes7oN8OQZ+JMXYT1Ev19HsdfnXUvrwX69X0U5IY+07zczY80HAYRLZZZGfv+jk0oTx+zgX/qtb+QOlC8F5MRb4LuzhtxoHSHwy0STro5heayK030XBxX1zXtAtvF3Ih+fzGpjPfN7JWQa/cm4zVOiL/QQ/cR+F+wjrxti0fhQQ3INmV+O253a7udPp5M7n82KMbDRGPmhv32kSKGEQD36FAr6Y+LBL4/n6OC8eviBGb4fC1+LwuoQ2F+3a74xV0cCc6KflE94T39ynNrfER8iNqDpXQIuN8WA91V6R/xZKH35JOJpgiKpOQ5uOBzEnk7/jghJaMUT4Ekrjmr3qcjPRlPadzIWvHdq13xm/LppNua3Yq84VKMWmeaFuknxye0X+ZMMazN/RtwYUzppgiPadhhKOrZXI/+wIxZfbuYik8bxFUwz2j/OEds7jcR9gF+MAuCb645ra74xV0Uj78PbCnycLn8IZ53OlveZ2dR8r9yHEpvxzEdB5aHY97nvU/hODhbMmGKKq0+CEGvxhsOpnkoLxosq+CHhZ0jj7sB2LOczDmLFIcF0UDb1rcYD49fL/OA5zcU3td8aqaCr+I2BR9AufeX0URyk3ba+CXd0H+XKMWOAzSuykE0AMzV6T/ycgsawJhmjfaYx6tOI1mvLOh3+Nj3QaoxITzS6xTmN8PX/Waexpzz0/W2KdxjA2YqIxjI2oojEMQ2chGsMw6jDRGMYmHu4H8UDBIZO/2g0AAAAASUVORK5CYII=" InformativeScreenshot="7541c103743ca0131dee8c1243813c95.png" ScopeSelectorArgument="&lt;wnd app='cnp3.exe' cls='TfrmConCmRelatorioPersonalizadoWF' title='Acompanhamento Workflow - 01/06/2023  13:48:34' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                 </uix:NClick.Target>
               </uix:NClick>
-              <uix:NClick ClickType="Single" DisplayName="Click 'Todos'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V3">
+              <uix:NClick ClickType="Single" DisplayName="Click 'Pagamento de crédito'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V3">
                 <uix:NClick.Target>
-                  <uix:TargetAnchorable DesignTimeRectangle="1, 43, 182, 14" DesignTimeScaleFactor="1" ElementType="ListItem" FriendlyName="'Todos'" FullSelectorArgument="&lt;ctrl name='Todos' role='list item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Todos' role='list item' automationid='' check:text='Todos' /&gt;" Guid="5d1933ab-bebf-4819-a51a-94461d5f9dd4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALkAAAASCAYAAAAHdn9xAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEKSURBVGhD7djhDYMgEIZh5mIghnAKpnELJnAJN7gKigUtDTXaKHmfpD88r/bP18uh6rpOnmqwWrQdlitgbxxHeWjIB7FaiVJayDi+eXDIgTqEHM0j5GheHvLBilZ+z91+avfeeU82/XIJ3EBxkh97a0HIcT8/hdzX4nRP7611bcQkIf/cH9+K7J8DXKE+5GGVMTLntxcTV5i0vqw7IeSl/t6IWke9r8ce4Br1Ic/C6S/nMG/7Yr3UH/8IYZIn94Gr/D/kURL2rA6c7Nx1JdTTib3v98/dhj/7HeBkhw+e6fR916fvFA6eab8PdqwrbaejKHCdYsiBVhByNI+Qo3mEHM1zzhFytM05Jy9vr9QAzeftHQAAAABJRU5ErkJggg==" InformativeScreenshot="a70162e842780f5a5cd8d1916ba26e7e.png" ScopeSelectorArgument="&lt;wnd app='cnp3.exe' cls='ComboLBox' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                  <uix:TargetAnchorable DesignTimeRectangle="1, 99, 182, 14" DesignTimeScaleFactor="1" ElementType="ListItem" FriendlyName="'Pagamento de crédito'" FullSelectorArgument="&lt;ctrl name='Pagamento de crédito' role='list item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Pagamento de crédito' role='list item' automationid='' check:text='Pagamento de crédito' /&gt;" Guid="0e9928a2-ac50-4117-9318-931025bec98a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALkAAAARCAYAAACB4g3fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJDSURBVGhD7ZiBlYMgDIady4Ecwimcpsu4hBtwhEL6B5OiZ21tX773eMfRkAT5m4LdOI7hGLcwdF3ocuunOY+fxzz1b4njfD/LsoQXiPydzGHq6cvUB9e4s4UvFLnj7MNF7vw8LvIzmafQd0O8sTifZC3ytDGPS+T1z77x0ttP8aT+H+7n++EkFdLl2PYNsemZpzUcWYtjoYscH/RtCN2VH3yd7y5OFvn8LCsl9qG1OBZtkcP/VJm4wuPu0BchjQ9hguql2id/Q6xY9/F+uuW3JfDqkf1V84Y4T4yXNy2xKTlarxjZJufBS9Hi1lAexaYcRcSa8pjhS41dPZM9a3HabK/kYpzei5ezJvXLkeb+vvyxcYo9jRf7ur+KQ+HBn4iJAsv2KxvlqIU2qa/lC3EF0mcSIRklPxDL8tWKjfPQ1lqLs4l9Z3LxWR7HjYkIcbTstT5WwNxSFRNxqIIr/mguKFMTKgkTqyLbWHERkQNQjxu+zNhl/s61ONtoV/JC2jilslT2UjQNe61fbS4j4pwkci0uInIA6nHDl4v8M+wTeXnK1OcKjz+l1FdEg/boX+vTX/YHlzORlyHyNLfxE7+yAf9aXEHlk9ZVcubcIpavZ7FrPytbZS3OJraLPG9K+vnNF0AWQRIxfRbHueIY9vVGan32R3NzEJEXiLzEyZ+lc3Key/lVPGxiZUUxa3FrKI9iU0QocssYvtTYPH//Wpw2a5EfAsXnONfgBSKHih3b6rLmOB/mxZXcca4Hi9ybt99tY/gDJzOlSHLDHJ0AAAAASUVORK5CYII=" InformativeScreenshot="f8e74c55938adaf9f39b22ca629270f8.png" ScopeSelectorArgument="&lt;wnd app='cnp3.exe' cls='ComboLBox' idx='*' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
                 </uix:NClick.Target>
               </uix:NClick>
             </Sequence>
@@ -281,21 +285,21 @@
       </uix:NApplicationCard.TargetApp>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="800,4092" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="496,81" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="738,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Gerando relatorio newcon&quot;]" />
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Clicar imprimir" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: NewCon" sap:VirtualizedContainerService.HintSize="738,593" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" OpenMode="Never" ScopeGuid="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V2">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Gerando relatorio newcon&quot;]" />
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Clicar imprimir" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: NewCon" sap:VirtualizedContainerService.HintSize="484,593" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" OpenMode="Never" ScopeGuid="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -327,15 +331,15 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
-      <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" RepeatForever="{x:Null}" DisplayName="On Element Appear 'Chrome_RenderWidgetHost...'" sap:VirtualizedContainerService.HintSize="738,3216" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" WaitActive="True" WaitVisible="False">
+      <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" RepeatForever="{x:Null}" DisplayName="On Element Appear 'Chrome_RenderWidgetHost...'" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" WaitActive="True" WaitVisible="False">
         <ui:OnUiElementAppear.Body>
-          <Sequence sap:VirtualizedContainerService.HintSize="704,3039" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <Sequence sap:VirtualizedContainerService.HintSize="557,1279" sap2010:WorkflowViewState.IdRef="Sequence_9">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Windows Security" sap:VirtualizedContainerService.HintSize="642,1076" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="648e83fc-e1c9-44a9-b7c3-ce7e4db89cf3" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Windows Security" sap:VirtualizedContainerService.HintSize="495,1076" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="648e83fc-e1c9-44a9-b7c3-ce7e4db89cf3" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -375,7 +379,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NApplicationCard>
-            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: SDGrRelatorioAcompanhamentoWorkflow - Report Viewer" sap:VirtualizedContainerService.HintSize="642,1812" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="WindowMessages" OpenMode="Never" ScopeGuid="10939f19-a0d9-4269-bac3-92b05ed6cb1d" Version="V2">
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: SDGrRelatorioAcompanhamentoWorkflow - Report Viewer" sap:VirtualizedContainerService.HintSize="495,52" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="WindowMessages" OpenMode="Never" ScopeGuid="10939f19-a0d9-4269-bac3-92b05ed6cb1d" Version="V2">
               <uix:NApplicationCard.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -439,9 +443,9 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NClick ClickType="Single" DelayBefore="2" DisplayName="Click 'Excel'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_18" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="10939f19-a0d9-4269-bac3-92b05ed6cb1d" Timeout="60" Version="V3">
+                              <uix:NClick ClickType="Single" DelayBefore="2" DisplayName="Click 'CSV (delimitado'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_18" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="10939f19-a0d9-4269-bac3-92b05ed6cb1d" Timeout="60" Version="V3">
                                 <uix:NClick.Target>
-                                  <uix:TargetAnchorable BrowserURL="http://db1report161p.sicredi.net:81/NEWCON/Pages/ReportViewer.aspx?/NEWCON4/RELATORIOS%2fFI%2fSDGrRelatorioAcompanhamentoWorkflow&amp;rs:Command=Render&amp;rs:embed=true&amp;ID_Identificador=55294156&amp;Reporting_WF=%27%27" DesignTimeRectangle="428, 202, 150, 24" DesignTimeScaleFactor="0.800000011920929" ElementType="Text" FriendlyName="'Excel'" FullSelectorArgument="&lt;webctrl idx='4' tableRow='4' tag='TABLE' /&gt;&lt;webctrl aaname='Excel' class='ActiveLink' tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Excel' class='ActiveLink' type='' tag='A' check:innerText='Excel' /&gt;" Guid="1928121d-e98f-44ba-b6ab-0b3762ef3bae" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAcCAYAAACZFqbSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEaSURBVHhe7de9DYMwEEBhb+ixXGeClF4gRTbwFNSMccGczY9CAw5XxO+TUCxDuicfOAFuNAyDPJ5vITTcitBggtBggtBggtBggtBgIofmnCM03CuHlhEabkVoMEFoMEFoMEFoMHEqtDF6/UQtl49juXNdCkFSWeN/nQ4t/LgKQutDY2ijRO+WvXy/nnLb00/39FndW+MitD40jc45sDGK93HKKEmYfycpiKvrIgUvy6TN/yl1EloffjI6NcA1pBTWU05NEW4Cna8SIqH1wTC046AIrQ/todXRuYzQydfo1Pezo69UQutD0zuaC6/dx0A+yWpMeV2f0739+FyfI7QenAoNuIrQYILQYILQYILQYILQYILQYEJDE/kAuE12YcQ7h7YAAAAASUVORK5CYII=" InformativeScreenshot="34185a9706a90ee6ad295a22a3687571.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='SDGrRelatorioAcompanhamentoWorkflow -*' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                                  <uix:TargetAnchorable BrowserURL="http://db1report161p.sicredi.net:81/NEWCON/Pages/ReportViewer.aspx?/NEWCON4/RELATORIOS%2fFI%2fSDGrRelatorioAcompanhamentoWorkflow&amp;rs:Command=Render&amp;rs:embed=true&amp;ID_Identificador=72411615&amp;Reporting_WF=%27%27&amp;ID_Identificador=72411615&amp;Reporting_WF=%27%27" DesignTimeRectangle="555, 446, 200, 46" DesignTimeScaleFactor="1" FriendlyName="'CSV (delimitado'" FullSelectorArgument="&lt;webctrl idx='4' tableRow='4' tag='TABLE' /&gt;&lt;webctrl class='DisabledButton' idx='6' tableRow='1' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='DisabledButton' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' type='' tag='DIV' check:innerText='CSV (delimitado por vírgulas)' /&gt;" Guid="14743cdc-03d0-4ebd-8ef7-59c3624dccaf" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMwAAAAyCAYAAAAQujSbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAR0SURBVHhe7ZjrkaswDIXpkLIohVJSxf6mDK7lB5Zk2aBswiR3zzfDboyNrNcxmUx75ufnJ38CAHC4NoRgcOHCZV8FvGEAOAGCAcABBAOAAwgGAAcQDAAOIBgAHEAwADiAYABwAMEA4ACCAcABBAOAAwgGAAcQDAAOIBgAHEAwADiAYABwAMEA4ACCAcDBHxTMY1+mJfw9g9bN+7rl0TLt03L+VAvZmfanHm3Y9nWuPn0V27rPLJ+vYlvnJ+vyHDcKJjXOdFy8aakRjLnHsk/zGmY1spkb6LmuKJ4TzMvoxnSFbxUM+X0l535+JZhhn9jcI5jomDplw4mzxMonscy8Cx5rbopO05K9bpLOmgqCuZ9t397k82/fMPS86L0TbhDMWeONm4C+CsmAksC6OTIaMn6dym+v5dEKhs/XvaTf3I9UpCDq8laM+yW/6rhQ7cTn8j50lRj4/tp3/sy8PppcSZujPGc/wmE0l/VauPFrU7El8y5j1geOUROyle33c1fskG9l33BPHIh2vcp0sldn+7nke7A8xZh1PH3eL5gLJ2oqesdp/fxJgLw4hJ3Q+ryc54WvjR5HuujHXBGKHFcfpJ02H2Fe7X88q9bKfQM0z3MxzE1uGGYv5uLYO83XVEkRNHsrdJ5pXOLo546Q+xx+Cr9kTGRP+MXXHp95LvUeHJrrx6W5RzC2p5JYfNnMCRmQLoyGJzMmsCkyL0A7Xwst55qiMx/GY7VHIxhJ3d8qMs+F3QQyfo6RCyYwHUOE1c6c57A3SvLtWu7MfIie4fVK9AUjqbmUPmj6OWv5iDeMgNYbTZySIgvRopuoTba8R59JpOqKBmSDjYo+Hks7Vj7ierZ/FYyOld+zc0G27MZQfkRqLsznmAh0jC3MH9HwNDwRjLYr7lUfCyPBxHGTyzgTe0PeS3yWYMxCjWmKV05CcYrZyOCNvdmpmuZlMSry2XcJxno27ZMKzKYC3JY1n/zU9xKdXIwEwRrXnFcU37UPo9zpfBByTVsjbp+v1baLP5I2b/2ctdwgmByIUaz0K1lIiPA2BSQDzffCCdYmQMKLQ9CYJzGOWQH0fEU2GLdrFaY/Vo2qGkT6K2OPdrS4mK00Zs0kDgMN+cFjVXmOz/LGkY2lYzSJAlz2Rf2EPMpd8avesv08hpQ/tp7bG+WS065TvTlACKa8xl4tmEgO9LiaRqhzVpBpzYXA2KmYSIkrtttfyeR83UM2+ssEw/ZLS3KD5L2XRR4KtG/x7fxXsp5YiOzHyuog8hTIoinzfFrHaJNjU+vGggmIfUMMuoa8d8J9slem21wXOzyXqsbc9vCQaSFtHHbyvfcI5jYoObKpAKGF+7mQCKxD8x149xJvmPz/ywUTiCfS9VPjb/Algokn/k1+PtEn/6dggMGnCoZ/jUoX/8b0aUAwADiAYABwAMEA4ACCAcABBAOAAwgGAAcQDAAOIBgAHEAwADiAYABwAMEA4ACCAcABBAOAAwgGAAddweDChcu+CnjDAHACBAOAg6qNff8HjxOu4AovNg4AAAAASUVORK5CYII=" InformativeScreenshot="e3df75d0cfac8e2ee9a78b3ff937ff21.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='SDGrRelatorioAcompanhamentoWorkflow - Visualizador de Relatórios' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" />
                                 </uix:NClick.Target>
                               </uix:NClick>
                             </Sequence>
@@ -544,7 +548,7 @@
               </uix:NApplicationCard.TargetApp>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -560,16 +564,22 @@
         </ui:OnUiElementAppear.Target>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:OnUiElementAppear>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="800,92" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Copiando para pasta&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="800,782" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,92" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Copiando para pasta&quot;]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="496,52" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA relatorio Formalistica&quot;&quot;\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="334,153" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[downloadFile.FullName]" />
+        <ui:CopyFile ContinueOnError="{x:Null}" Destination="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="334,153" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[downloadFile.FullName]" />
       </TryCatch.Try>
       <TryCatch.Catches>
         <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="560,619" sap2010:WorkflowViewState.IdRef="Catch`1_4">
@@ -601,7 +611,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA relatorio Formalistica&quot;&quot;\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="388,153" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="C:\Users\app_consorcios_login\Downloads\SDGrRelatorioAcompanhamentoWorkflow.xlsx" />
+                      <ui:CopyFile ContinueOnError="{x:Null}" Destination="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="388,153" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)+&quot;\SDGrRelatorioAcompanhamentoWorkflow.xlsx&quot;]" />
                     </Sequence>
                   </ActivityAction>
                 </ui:RetryScope.ActivityBody>
@@ -614,7 +624,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Controle de Acesso" sap:VirtualizedContainerService.HintSize="800,759" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" ScopeGuid="e1a8fe7e-fb74-4c1b-a28a-b201db88431d" Version="V2">
+    <uix:NApplicationCard sap2010:Annotation.AnnotationText="Fechar Newcon" AttachMode="ByInstance" DisplayName="Use Application: Controle de Acesso" sap:VirtualizedContainerService.HintSize="496,83" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" ScopeGuid="e1a8fe7e-fb74-4c1b-a28a-b201db88431d" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -644,13 +654,19 @@
       </uix:NApplicationCard.TargetApp>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </uix:NApplicationCard>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="800,92" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Enviando Email&quot;]" />
-    <ui:SendExchangeMail Cc="{x:Null}" EmailAutodiscover="{x:Null}" MailMessage="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Enviar email de aviso" ApplicationId="2abead93-2925-4927-a0d2-bb0c948f8808" AuthenticationMode="UserNameAndPassword" Bcc="andrade_cicero@sicredi.com.br;borges_gabriel@sicredi.com.br" Body="[&quot;Olá, Relatório disponível no caminho: \\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA relatorio Formalistica&quot;&quot;\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata&quot;]" DirectoryId="3223964c-6e1f-48ba-b705-423351281a8c" DisplayName="Send Exchange Mail Message" Domain="sicredi.com.br" ExchangeVersion="Exchange2013_SP1" From="ocorrencias_formalistica@sicredi.com.br" sap:VirtualizedContainerService.HintSize="800,183" sap2010:WorkflowViewState.IdRef="SendExchangeMail_1" IsBodyHtml="True" IsDraft="False" Name="Consócrio Sicredi" Password="Ci15ro04an99%" SaveCopy="False" Server="[“https://outlook.office365.com/EWS/Exchange.asmx”]" Subject="Relatorio Whats" To="renata_cardoso@sicredi.com.br" User="app_consorcios_login@sicredi.com.br">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="FiltrarDados.xaml - Invoke Workflow File" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="FiltrarDados.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,92" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Enviando Email&quot;]" />
+    <ui:SendExchangeMail Cc="{x:Null}" EmailAutodiscover="{x:Null}" MailMessage="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Enviar email de aviso" ApplicationId="2abead93-2925-4927-a0d2-bb0c948f8808" AuthenticationMode="UserNameAndPassword" Bcc="andrade_cicero@sicredi.com.br;borges_gabriel@sicredi.com.br" Body="[&quot;Olá, Relatório disponível no caminho: \\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA relatorio Formalistica&quot;&quot;\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata&quot;]" DirectoryId="3223964c-6e1f-48ba-b705-423351281a8c" DisplayName="Send Exchange Mail Message" Domain="sicredi.com.br" ExchangeVersion="Exchange2013_SP1" From="ocorrencias_formalistica@sicredi.com.br" sap:VirtualizedContainerService.HintSize="496,180" sap2010:WorkflowViewState.IdRef="SendExchangeMail_1" IsBodyHtml="True" IsDraft="False" Name="Consócrio Sicredi" Password="Ci15ro04an99%" SaveCopy="False" Server="[“https://outlook.office365.com/EWS/Exchange.asmx”]" Subject="Relatorio Whats" To="renata_cardoso@sicredi.com.br" User="app_consorcios_login@sicredi.com.br">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
