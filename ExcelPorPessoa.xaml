@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ExcelPorPessoa" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1363,3609" sap2010:WorkflowViewState.IdRef="ExcelPorPessoa_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ExcelPorPessoa" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,1582" sap2010:WorkflowViewState.IdRef="ExcelPorPessoa_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="62">
       <x:String>System.Activities</x:String>
@@ -70,10 +70,9 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExcelPorPessoa" sap:VirtualizedContainerService.HintSize="1373,3544" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExcelPorPessoa" sap:VirtualizedContainerService.HintSize="656,1517" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_relatorio" />
     </Sequence.Variables>
@@ -82,7 +81,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1311,3341" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="594,1314" sap2010:WorkflowViewState.IdRef="Sequence_7">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_Dados" />
         <Variable x:TypeArguments="s:String[]" Name="arrNames" />
@@ -92,10 +91,8 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ReadCsvFile DataTable="[dt_dados]" Delimitator="Semicolon" DisplayName="Read CSV" FilePath="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" sap:VirtualizedContainerService.HintSize="1249,153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-      <ui:ReadCsvFile DataTable="[dt_relatorio]" Delimitator="Semicolon" DisplayName="Read CSV" FilePath="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" sap:VirtualizedContainerService.HintSize="1249,153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2" />
-      <ui:ClearDataTable DataTable="[dt_relatorio]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="1249,80" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
-      <Assign sap:VirtualizedContainerService.HintSize="1249,81" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <ui:ReadCsvFile DataTable="[dt_dados]" Delimitator="Semicolon" DisplayName="Read CSV" FilePath="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" sap:VirtualizedContainerService.HintSize="532,153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+      <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_5">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[dt_Dados.Columns(7).ColumnName]</OutArgument>
         </Assign.To>
@@ -103,7 +100,7 @@
           <InArgument x:TypeArguments="x:String">Usuário</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="1249,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign sap:VirtualizedContainerService.HintSize="532,82" sap2010:WorkflowViewState.IdRef="Assign_3">
         <Assign.To>
           <OutArgument x:TypeArguments="s:String[]">[arrNames]</OutArgument>
         </Assign.To>
@@ -111,13 +108,13 @@
           <InArgument x:TypeArguments="s:String[]">[dt_Dados.AsEnumerable.Select(function(r) r("Usuário").ToString).Distinct().ToArray()]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1249,2481" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[arrNames]">
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="532,766" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[arrNames]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:String">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:String" Name="item" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1213,2356" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,640" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="dtTemp" />
                 <Variable x:TypeArguments="x:String" Name="itemName" />
@@ -127,7 +124,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="1151,81" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
                 <Assign.To>
                   <OutArgument x:TypeArguments="sd:DataTable">[dtTemp]</OutArgument>
                 </Assign.To>
@@ -135,7 +132,7 @@
                   <InArgument x:TypeArguments="sd:DataTable">[dt_Dados.Select("Usuário='"+item+"'").CopyToDataTable]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign sap:VirtualizedContainerService.HintSize="1151,81" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[itemName]</OutArgument>
                 </Assign.To>
@@ -143,88 +140,14 @@
                   <InArgument x:TypeArguments="x:String">[item.ToString.Replace("/","-")]</InArgument>
                 </Assign.Value>
               </Assign>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1151,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[itemName]" />
-              <ui:WriteCsvFile AddHeaders="True" DataTable="[dttemp]" Delimitator="Semicolon" DisplayName="Write CSV" FilePath="[&quot;excels\&quot;+itemName+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="1151,153" sap2010:WorkflowViewState.IdRef="WriteCsvFile_2" ShouldQuote="True" />
-              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1151,1678" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-                <ui:CommentOut.Body>
-                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="1115,1599" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap2010:Annotation.AnnotationText="Conferir se o processo já chegou na etapa da conferencia da documentação" sap:VirtualizedContainerService.HintSize="1053,1488" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                      <Sequence.Variables>
-                        <Variable x:TypeArguments="x:Int32" Name="ResultRow" />
-                      </Sequence.Variables>
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[dttemp]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="991,292" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="NM_Atividade1" LookupValue="ANÁLISE DE DOCUMENTOS 1ª ETAPA" RowIndex="[ResultRow]">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </ui:LookupDataTable>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="991,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;ResultRow: &quot;+ResultRow.ToString]" />
-                      <If Condition="[ResultRow = -1]" sap:VirtualizedContainerService.HintSize="991,882" sap2010:WorkflowViewState.IdRef="If_1">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <If.Then>
-                          <Sequence sap:VirtualizedContainerService.HintSize="450,203" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Processo ainda não chegou na etapa de analise&quot;]" />
-                          </Sequence>
-                        </If.Then>
-                        <If.Else>
-                          <Sequence sap:VirtualizedContainerService.HintSize="496,724" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                            <Sequence.Variables>
-                              <Variable x:TypeArguments="sd:DataTable" Name="dt_row" />
-                              <Variable x:TypeArguments="sd:DataRow" Name="rowWanted" />
-                            </Sequence.Variables>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[dtTemp.select(&quot;Usuário='&quot;+item+&quot;'&quot;).firstorDefault.ToString]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_9">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="sd:DataRow">[rowWanted]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="sd:DataRow">[dtTemp.select("Usuário='"+item+"'").firstorDefault.Copy]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[rowWanted]" DataTable="[dt_relatorio]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                            <ui:AppendCsvFile DataTable="[dt_relatorio]" Delimitator="Semicolon" DisplayName="Append to CSV" FilePath="[&quot;Relatorio &quot;+Now.ToString(&quot;ddMMyyyy&quot;)+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,133" sap2010:WorkflowViewState.IdRef="AppendCsvFile_1" />
-                          </Sequence>
-                        </If.Else>
-                      </If>
-                    </Sequence>
-                  </Sequence>
-                </ui:CommentOut.Body>
-              </ui:CommentOut>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[itemName]" />
+              <ui:WriteCsvFile AddHeaders="True" DataTable="[dttemp]" Delimitator="Semicolon" DisplayName="Write CSV" FilePath="[&quot;excels\&quot;+itemName+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,153" sap2010:WorkflowViewState.IdRef="WriteCsvFile_2" ShouldQuote="True" />
             </Sequence>
           </ActivityAction>
         </ui:ForEach.Body>
       </ui:ForEach>
     </Sequence>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1311,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="594,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="572,933" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
