@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,9366" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,9766" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="78">
       <x:String>System.Activities</x:String>
@@ -90,13 +90,13 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="924,9301" sap2010:WorkflowViewState.IdRef="Sequence_31">
+  <Sequence sap:VirtualizedContainerService.HintSize="924,9341" sap2010:WorkflowViewState.IdRef="Sequence_31">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Get Data" DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="862,9078" sap2010:WorkflowViewState.IdRef="Sequence_40">
+    <Sequence sap2010:Annotation.AnnotationText="Get Data" DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="862,9118" sap2010:WorkflowViewState.IdRef="Sequence_40">
       <Sequence.Variables>
         <Variable x:TypeArguments="si:FileInfo" Name="downloadFile" />
       </Sequence.Variables>
@@ -116,7 +116,7 @@
             <ActivityAction.Argument2>
               <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
             </ActivityAction.Argument2>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,211" sap2010:WorkflowViewState.IdRef="Sequence_13">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Sequence_13">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -198,7 +198,7 @@
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                       </ActivityAction.Argument>
-                      <Sequence sap:VirtualizedContainerService.HintSize="450,950" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                      <Sequence sap:VirtualizedContainerService.HintSize="450,968" sap2010:WorkflowViewState.IdRef="Sequence_25">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -309,7 +309,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </uix:NApplicationCard>
-      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="800,4307" sap2010:WorkflowViewState.IdRef="Sequence_16">
+      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="800,4347" sap2010:WorkflowViewState.IdRef="Sequence_16">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -349,7 +349,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </uix:NApplicationCard>
-        <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" RepeatForever="{x:Null}" DisplayName="On Element Appear 'Chrome_RenderWidgetHost...'" sap:VirtualizedContainerService.HintSize="738,3384" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" WaitActive="True" WaitVisible="False">
+        <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" RepeatForever="{x:Null}" DisplayName="On Element Appear 'Chrome_RenderWidgetHost...'" sap:VirtualizedContainerService.HintSize="738,3424" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" WaitActive="True" WaitVisible="False">
           <ui:OnUiElementAppear.Body>
             <Sequence sap:VirtualizedContainerService.HintSize="704,3198" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
@@ -429,13 +429,16 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <uix:NClick ClickType="Single" DisplayName="Click 'Número do Processo'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_17" InteractionMode="WindowMessages" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="10939f19-a0d9-4269-bac3-92b05ed6cb1d" Timeout="300000" Version="V3">
                                 <uix:NClick.Target>
-                                  <uix:TargetAnchorable BrowserURL="http://db1report161p.sicredi.net:81/NEWCON/Pages/ReportViewer.aspx?/NEWCON4/RELATORIOS%2fFI%2fSDGrRelatorioAcompanhamentoWorkflow&amp;rs:Command=Render&amp;rs:embed=true&amp;ID_Identificador=55294156&amp;Reporting_WF=%27%27" DesignTimeRectangle="458, 125, 62, 31" DesignTimeScaleFactor="0.800000011920929" FriendlyName="'TD'" FullSelectorArgument="&lt;webctrl aaname='Export drop down menu' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Export drop down menu' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='' /&gt;" Guid="3a4bf0fb-5eeb-46b9-abac-b940e3c80c03" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEIAAAAjCAYAAAAg/NwXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVGhD7dexjoIwHMdx3oKRsY/QkUfo6Mjo6OgjMDI6OnZ0ZGTs6BMQRkZGx9+1+FNzd5JDr8Tc+f8mTaOVBD4gSZO2bSGjxQjxzl2uXyAE4pxAMIFgAsEEggkEEwgmEEwgWHSIoV5D6Rw6S5D5Oc8nhs6QZNrPCut64NGvKzpEbw1KB7gyGefJXInk/EMY2/PL1yUQTCCYQLBFIYpdg6aZGLviPSC6ukJV/TDq7v9DzG4mROccPNtEHZybXp3TghAD3P7OUxDG3vlVNhPidKxQbOo7GB3qTYHqeOLn51oQooc1ObaHL++Gwxa5sX6VPfDX+I4RByG0MISB7Xt/sjscx1Vfb2GehAjdMOIhhKJDDI2/4yvrT/MGYU2J62vjlxChgLHSq2gIoegQoc7vN3KlodIUyu8rVJpBX/cZCmmqPu05HoVYokUg/mICwQSCCQQTCCYQTCCYQDCBYALBztcPfAC24wPWPivu7AAAAABJRU5ErkJggg==" InformativeScreenshot="bfd9b885d89ef6f3deea99b598bc3441.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='SDGrRelatorioAcompanhamentoWorkflow -*' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" WaitForReadyArgument="Complete">
+                                  <uix:TargetAnchorable BrowserURL="http://db1report161p.sicredi.net:81/NEWCON/Pages/ReportViewer.aspx?/NEWCON4/RELATORIOS%2fFI%2fSDGrRelatorioAcompanhamentoWorkflow&amp;rs:Command=Render&amp;rs:embed=true&amp;ID_Identificador=55294156&amp;Reporting_WF=%27%27" DesignTimeRectangle="522, 82, 78, 39" DesignTimeScaleFactor="1" FriendlyName="'TD'" FullSelectorArgument="&lt;webctrl aaname='Export drop down menu' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Export drop down menu' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='' /&gt;" Guid="3a4bf0fb-5eeb-46b9-abac-b940e3c80c03" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEIAAAAjCAYAAAAg/NwXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVGhD7dexjoIwHMdx3oKRsY/QkUfo6Mjo6OgjMDI6OnZ0ZGTs6BMQRkZGx9+1+FNzd5JDr8Tc+f8mTaOVBD4gSZO2bSGjxQjxzl2uXyAE4pxAMIFgAsEEggkEEwgmEEwgWHSIoV5D6Rw6S5D5Oc8nhs6QZNrPCut64NGvKzpEbw1KB7gyGefJXInk/EMY2/PL1yUQTCCYQLBFIYpdg6aZGLviPSC6ukJV/TDq7v9DzG4mROccPNtEHZybXp3TghAD3P7OUxDG3vlVNhPidKxQbOo7GB3qTYHqeOLn51oQooc1ObaHL++Gwxa5sX6VPfDX+I4RByG0MISB7Xt/sjscx1Vfb2GehAjdMOIhhKJDDI2/4yvrT/MGYU2J62vjlxChgLHSq2gIoegQoc7vN3KlodIUyu8rVJpBX/cZCmmqPu05HoVYokUg/mICwQSCCQQTCCYQTCCYQDCBYALBztcPfAC24wPWPivu7AAAAABJRU5ErkJggg==" InformativeScreenshot="517f0d6a4069a59bbf11f93c02b0ed1b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='SDGrRelatorioAcompanhamentoWorkflow -*' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" WaitForReadyArgument="Complete">
                                     <uix:TargetAnchorable.Anchors>
-                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
-                                        <uix:Target DesignTimeRectangle="17, 178, 107, 28" FriendlyName="'Número do Processo'" FullSelectorArgument="&lt;webctrl tableRow='2' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='A9fe3824ef99c492e9b47cb9787b4749334c' aaname='' check:innerText='Número do  Processo' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAgCAYAAAAcyybZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI9SURBVGhD7Zi9csIwDIDzQhk68hBs7BwbY9kYWDgeAPoE3XiGvp1ryZItJY5DgbboTrn7LsR/kfTZcG0X/DJ7uTzDV5bXdZ1jDXKHDx+fX44B2JXLM4jLM4zLM4zLM4zLM4zLM4zLM8yvyTttF6Fbnat9znO4Wx7K6RZhfUnPu1X8Sz/Luob1W+n7O85hGeNfHmp9NSBO/d+KfnutjHtNHpRXhGl5/8V98rKwyz70YkO+Oo/Lo2RZnvy65M9lLI3fbujzJuxwvVR0bMO58LwIPZyKt304qRMyLi6+G/riae/jHeWhCG6HNfScxEDeAeKKMcGd1sK+6loiZm7D+amNN1COLZLeI+blXNr5TQHj8U7ucsMcKCQGvSZps/IowXJCyymBtpRYSmJ5KH2wTplT3ptlyNNCRdbzB4IUsmgJHMcScUx9rRKTjFnGAfN1HohaO9HMr8HD8k5yV7IoGQi3CXlaVK2Ax1KIYfFzYSiWWqHfhdDYLmPSDNZm8ORRAeXmiM9preN4nqwDkubgeG7DGHS+nP9kfg1gPt7JXW6YQwrJAVZEzcuTbby+2MVineF7cawsLhXwpydv1Cfl3Xjy9IaroNZMcN7N/Bo8RR4niAGIHdjH341b5Oldy183shC0PjIuEK4PffI3D08kzZksxi3y6Hm0loiJ2nIcgBDLbfgelSvn0s5vChiPd3KXG5zXx+UZxuUZxuUZxuUZxuUZxuUZxuUZxuUZxuUZxuUZpirPMQa5wwe/bFzJVQjfvXNfLaZizboAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
-                                        <uix:Target DesignTimeRectangle="336, 134, 107, 17" ElementType="DropDown" FriendlyName="'100%'" FullSelectorArgument="&lt;webctrl idx='3' tableRow='4' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SELECT' class='aspNetDisabled' aaname='Zoom' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAVCAYAAABIfLDHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFaSURBVGhD7dbNjYMwEIZhdwSduCS4TSlug5tL4UgJs/7in4xJIhYhRRkxr2QpgLMHnh2CY0tthqe4hrcsiy0lq9bhWb+f4SnO8BRneIo7iReZnOewlkMUiZ1zj+XFhTX4dp7i/hylv1RaA/u64cZN08TbtpWjZzg3z3M56vs3Xr7xxEQSL2H6wPlQwEoQfH5gib0JPEOvHLyAvGmAwz/1OI4dID7jHK5hz76Tk4f7LvASghwaAANlDdRNZyRM3yse9tvQZaRhGDpACYdrErV2Ce/l5heUDjhV9+XprY/NhGlyrT3gERz6Kp4sEgDx2My/i84gO8AjOHQJD1jyngPp82OzHKA3j809+F2rgEdw6BoeXkbevbAknDZJ7YWl9vzt6/HsxaUGtCM4dA0vBYA65nK6MG35fL+//z7A8z5MonWu03jW72R4ijM8xX3Es6Vj1RqepS/DUxvzHzmCuHohHCXSAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                        <uix:Target DesignTimeRectangle="20, 144, 134, 36" FriendlyName="'Número do Processo'" FullSelectorArgument="&lt;webctrl tableRow='2' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='A9fe3824ef99c492e9b47cb9787b4749334c' aaname='' check:innerText='Número do  Processo' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAgCAYAAAAcyybZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI9SURBVGhD7Zi9csIwDIDzQhk68hBs7BwbY9kYWDgeAPoE3XiGvp1ryZItJY5DgbboTrn7LsR/kfTZcG0X/DJ7uTzDV5bXdZ1jDXKHDx+fX44B2JXLM4jLM4zLM4zLM4zLM4zLM4zLM8yvyTttF6Fbnat9znO4Wx7K6RZhfUnPu1X8Sz/Luob1W+n7O85hGeNfHmp9NSBO/d+KfnutjHtNHpRXhGl5/8V98rKwyz70YkO+Oo/Lo2RZnvy65M9lLI3fbujzJuxwvVR0bMO58LwIPZyKt304qRMyLi6+G/riae/jHeWhCG6HNfScxEDeAeKKMcGd1sK+6loiZm7D+amNN1COLZLeI+blXNr5TQHj8U7ucsMcKCQGvSZps/IowXJCyymBtpRYSmJ5KH2wTplT3ptlyNNCRdbzB4IUsmgJHMcScUx9rRKTjFnGAfN1HohaO9HMr8HD8k5yV7IoGQi3CXlaVK2Ax1KIYfFzYSiWWqHfhdDYLmPSDNZm8ORRAeXmiM9preN4nqwDkubgeG7DGHS+nP9kfg1gPt7JXW6YQwrJAVZEzcuTbby+2MVineF7cawsLhXwpydv1Cfl3Xjy9IaroNZMcN7N/Bo8RR4niAGIHdjH341b5Oldy183shC0PjIuEK4PffI3D08kzZksxi3y6Hm0loiJ2nIcgBDLbfgelSvn0s5vChiPd3KXG5zXx+UZxuUZxuUZxuUZxuUZxuUZxuUZxuUZxuUZxuUZpirPMQa5wwe/bFzJVQjfvXNfLaZizboAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                        <uix:Target DesignTimeRectangle="408, 94, 96, 20" ElementType="DropDown" FriendlyName="'100%'" FullSelectorArgument="&lt;webctrl idx='3' tableRow='4' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SELECT' class='aspNetDisabled' aaname='Zoom' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG8AAAAVCAYAAABIfLDHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFaSURBVGhD7dbNjYMwEIZhdwSduCS4TSlug5tL4UgJs/7in4xJIhYhRRkxr2QpgLMHnh2CY0tthqe4hrcsiy0lq9bhWb+f4SnO8BRneIo7iReZnOewlkMUiZ1zj+XFhTX4dp7i/hylv1RaA/u64cZN08TbtpWjZzg3z3M56vs3Xr7xxEQSL2H6wPlQwEoQfH5gib0JPEOvHLyAvGmAwz/1OI4dID7jHK5hz76Tk4f7LvASghwaAANlDdRNZyRM3yse9tvQZaRhGDpACYdrErV2Ce/l5heUDjhV9+XprY/NhGlyrT3gERz6Kp4sEgDx2My/i84gO8AjOHQJD1jyngPp82OzHKA3j809+F2rgEdw6BoeXkbevbAknDZJ7YWl9vzt6/HsxaUGtCM4dA0vBYA65nK6MG35fL+//z7A8z5MonWu03jW72R4ijM8xX3Es6Vj1RqepS/DUxvzHzmCuHohHCXSAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
                                       </scg:List>
                                     </uix:TargetAnchorable.Anchors>
+                                    <uix:TargetAnchorable.PointOffset>
+                                      <uix:PointOffset Position="TopLeft" X="-24" Y="20" />
+                                    </uix:TargetAnchorable.PointOffset>
                                   </uix:TargetAnchorable>
                                 </uix:NClick.Target>
                               </uix:NClick>
