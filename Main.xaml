@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,10813" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1240,11132" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:si="clr-namespace:System.IO;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="78">
       <x:String>System.Activities</x:String>
@@ -88,16 +88,15 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="924,9988" sap2010:WorkflowViewState.IdRef="Sequence_31">
+  <Sequence sap:VirtualizedContainerService.HintSize="924,11067" sap2010:WorkflowViewState.IdRef="Sequence_31">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Get Data" DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="862,9765" sap2010:WorkflowViewState.IdRef="Sequence_40">
+    <Sequence sap2010:Annotation.AnnotationText="Get Data" DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="862,10258" sap2010:WorkflowViewState.IdRef="Sequence_40">
       <Sequence.Variables>
         <Variable x:TypeArguments="si:FileInfo" Name="downloadFile" />
       </Sequence.Variables>
@@ -134,12 +133,38 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachFileX>
+      <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata" sap:VirtualizedContainerService.HintSize="800,90" sap2010:WorkflowViewState.IdRef="ForEachFileX_2" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+        <ui:ForEachFileX.Body>
+          <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+            <ActivityAction.Argument1>
+              <DelegateInArgument x:TypeArguments="si:FileInfo" Name="CurrentFile" />
+            </ActivityAction.Argument1>
+            <ActivityAction.Argument2>
+              <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+            </ActivityAction.Argument2>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,211" sap2010:WorkflowViewState.IdRef="Sequence_44">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="DeleteFileX_4" Path="[CurrentFile.FullName]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachFileX.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEachFileX>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="LogarNewcon.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="800,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="LogarNewcon.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Emitir relatorio" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: NewCon" sap:VirtualizedContainerService.HintSize="800,3649" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Emitir relatorio" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: NewCon" sap:VirtualizedContainerService.HintSize="800,3609" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="d08e6ee7-d960-4612-b279-d6e79d6147a4" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -486,24 +511,24 @@
                         </ui:GetLastDownloadedFile>
                         <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                           <ui:CommentOut.Body>
-                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="500,183" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="598,1442" sap2010:WorkflowViewState.IdRef="Sequence_27">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="338,61" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                              <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="536,1320" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <TryCatch.Catches>
-                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="502,1148" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
@@ -511,7 +536,7 @@
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                       </ActivityAction.Argument>
-                                      <Sequence sap:VirtualizedContainerService.HintSize="496,1081" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                      <Sequence sap:VirtualizedContainerService.HintSize="496,1079" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -597,7 +622,36 @@
         </ui:OnUiElementAppear>
       </Sequence>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="800,101" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Copiando para pasta&quot;]" />
-      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="800,831" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Controle de Acesso" sap:VirtualizedContainerService.HintSize="800,795" sap2010:WorkflowViewState.IdRef="NApplicationCard_9" ScopeGuid="e1a8fe7e-fb74-4c1b-a28a-b201db88431d" Version="V2">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,496" sap2010:WorkflowViewState.IdRef="Sequence_45">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ClickType="Single" DisplayName="Click 'controleacesso.exe Cont…'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_40" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e1a8fe7e-fb74-4c1b-a28a-b201db88431d" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="999, 84, 30, 20" DesignTimeScaleFactor="1" FriendlyName="'controleacesso.exe Cont…'" Guid="edf8e330-67e5-45c4-a9e4-484ca7ece1af" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAYAAACaq43EAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD1SURBVEhLxZI9EoMgEEZzDe9gmzZHcPQEdhY0nsDGI1hyAlp7e9vcaMMCIQpfTBGzKd4M8xb4lp/L5VrRX4BSAiglgFICKCWAUoJcdlTqhfr17mjHLqknNBO1dl6tQO2ITChjAxe6NRUVIzfgx9m8b8nEJjit7W5CT1Sw3514oNrVjHP9arI9Irn0izm81YPfnOGG5hC2bQ4Ex3lHQBne2Xf9On2hJqqjD2Eo2Dac75kAZSRcnf1gz/eulR27E78P/vghmVSUmk9jqNxcI28UvZ3jmzg52C2e/VWiT+Sd/zwu4LxgIaCUAEoJoJQASgmg/DkVPQBYNO1IIedqgAAAAABJRU5ErkJggg==" InformativeScreenshot="bf62a225ecb2907038e5d64304f80130.png" ScopeSelectorArgument="&lt;wnd app='controleacesso.exe' cls='TfrmMain' title='Controle de Acesso' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V1" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ClickType="Single" DisplayName="Click '&amp;Yes'" sap:VirtualizedContainerService.HintSize="338,166" sap2010:WorkflowViewState.IdRef="NClick_41" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e1a8fe7e-fb74-4c1b-a28a-b201db88431d" Version="V3">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="53, 114, 75, 23" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'&amp;Yes'" FullSelectorArgument="&lt;wnd ctrlid='6' title='&amp;amp;Yes' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='6' title='&amp;amp;Yes' check:text='&amp;amp;Yes' /&gt;" Guid="9365ea70-3374-44a9-944c-65a23fd3e6b0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAbCAYAAAA9K9JnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADxSURBVGhD7dXdDYQgEEZReqKbaYZWaMAiKIUO6GBWBFfAuGadRMfkezjxJ8aHmxk1KSWGaxBPAPEEunjTNMGJttcuXowRDiCeAOIJIJ4A4gkgnoC6eJ4Mk6/XwbG1jsPwjBb6Js8TG/LLeXCWrQv7Z5TQFy96JmPZhcDO5uN6z7DJatgsx13uGWLfveMeCuPViSOalVDbKo9Bn4m2Uhlv+dbNE1WCNVNXbSH7Sbybznjf1R3P98rqYm0bbbAyYcc/jnaV7/WCeLO6xv3PoVnnh1ZXabx3QDwBxBNAPAHEEziNB7+1vbp48B/EE0C8yxJ/AH8f4cFzNDv+AAAAAElFTkSuQmCC" InformativeScreenshot="3477e5e48413dc3b314e5d8609754a5e.png" ScopeSelectorArgument="&lt;wnd app='controleacesso.exe' cls='#32770' title='Confirmação' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp Area="0, 0, 0, 0" FilePath="\\nas02\consorcio\Newcon4\controleacesso.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFiSURBVDhPldLPKwRxGMfxGZFfxbpIbMni5sAWF/EHSH4WB7l+HaYctG7chpycnFwc9+rAyclNlIuc1kFSpFWK1o8L7+c7z0yzg9p96tV8n/l+n8/uzo4TlfFXcVelgk5Txt/AMWYqtIKSTlNBwJ52jjs81YYmbaOSe0hxNvNvAAdmcY203dOiH8QVxqMAmlo0a8A261Y8YEfnbNG7OMWJrOMBkxiiWUc3600U0Y4WnZdzE/jEqL0RCzhHlqbLHZnuYP0ECenFsg7X4QyHcJMB38jqQfkJj5AHuA+j9+fxBXvOVjIAnXhBDvV4htH1JfIIPl3qj4Bd3CKFBkiYBCzhHQM6GlQiYA6v8GSPaxjgoYAD2LmoEgHygG7QKHtcw4ALvKHfDsUrFvChhxe4USN7rCVA/o0StmBnyioW0Ie0s5iTl8OepJeXJoMe2NBfFQZEZfwxHEG+SSU8lAWsoVgd//4HPPLtTo+Vlz0AAAAASUVORK5CYII=" InformativeScreenshot="16fcef5d51b9ef8997432853e6266b20.png" Selector="&lt;wnd app='controleacesso.exe' cls='TfrmMain' title='Controle de Acesso' /&gt;" Title="Controle de Acesso" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="800,399" sap2010:WorkflowViewState.IdRef="TryCatch_4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -608,10 +662,10 @@
           <ui:CopyFile ContinueOnError="{x:Null}" Destination="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="334,162" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[downloadFile.FullName]" />
         </TryCatch.Try>
         <TryCatch.Catches>
-          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="510,659" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -619,7 +673,7 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <Sequence sap:VirtualizedContainerService.HintSize="504,590" sap2010:WorkflowViewState.IdRef="Sequence_28">
+              <Sequence sap:VirtualizedContainerService.HintSize="504,510" sap2010:WorkflowViewState.IdRef="Sequence_28">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="file" />
                 </Sequence.Variables>
@@ -657,22 +711,22 @@
       </ui:InvokeWorkflowFile>
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="800,101" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Enviando Email&quot;]" />
     </Sequence>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="862,61" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="862,647" sap2010:WorkflowViewState.IdRef="CommentOut_8">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,550" sap2010:WorkflowViewState.IdRef="Sequence_43">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="462,559" sap2010:WorkflowViewState.IdRef="Sequence_43">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap:VirtualizedContainerService.HintSize="450,428" sap2010:WorkflowViewState.IdRef="Sequence_42">
+          <Sequence sap:VirtualizedContainerService.HintSize="400,437" sap2010:WorkflowViewState.IdRef="Sequence_42">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SendExchangeMail Cc="{x:Null}" EmailAutodiscover="{x:Null}" MailMessage="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Enviar email de aviso" ApplicationId="2abead93-2925-4927-a0d2-bb0c948f8808" AuthenticationMode="UserNameAndPassword" Bcc="andrade_cicero@sicredi.com.br;borges_gabriel@sicredi.com.br" Body="Segue em anexo os dados solicitado" DirectoryId="3223964c-6e1f-48ba-b705-423351281a8c" DisplayName="Send Exchange Mail Message" Domain="sicredi.com.br" ExchangeVersion="Exchange2013_SP1" From="ocorrencias_formalistica@sicredi.com.br" sap:VirtualizedContainerService.HintSize="388,186" sap2010:WorkflowViewState.IdRef="SendExchangeMail_1" IsBodyHtml="True" IsDraft="False" Name="Consócrio Sicredi" Password="Ci15ro04an99%" SaveCopy="False" Server="[“https://outlook.office365.com/EWS/Exchange.asmx”]" Subject="Relatorio Whats" To="renata_cardoso@sicredi.com.br" User="app_consorcios_login@sicredi.com.br">
+            <ui:SendExchangeMail Cc="{x:Null}" EmailAutodiscover="{x:Null}" MailMessage="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Enviar email de aviso" ApplicationId="2abead93-2925-4927-a0d2-bb0c948f8808" AuthenticationMode="UserNameAndPassword" Bcc="andrade_cicero@sicredi.com.br;borges_gabriel@sicredi.com.br" Body="Segue em anexo os dados solicitado" DirectoryId="3223964c-6e1f-48ba-b705-423351281a8c" DisplayName="Send Exchange Mail Message" Domain="sicredi.com.br" ExchangeVersion="Exchange2013_SP1" From="ocorrencias_formalistica@sicredi.com.br" sap:VirtualizedContainerService.HintSize="338,186" sap2010:WorkflowViewState.IdRef="SendExchangeMail_1" IsBodyHtml="True" IsDraft="False" Name="Consócrio Sicredi" Password="Ci15ro04an99%" SaveCopy="False" Server="[“https://outlook.office365.com/EWS/Exchange.asmx”]" Subject="Relatorio Whats" To="renata_cardoso@sicredi.com.br" User="app_consorcios_login@sicredi.com.br">
               <ui:SendExchangeMail.Files>
                 <InArgument x:TypeArguments="x:String">\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv</InArgument>
                 <InArgument x:TypeArguments="x:String">["\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\Relatorio Whats "+Now.ToString("ddMMyyyy")+".csv"]</InArgument>
@@ -683,13 +737,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:SendExchangeMail>
-            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="388,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" />
+            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="338,89" sap2010:WorkflowViewState.IdRef="DeleteFileX_3" Path="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" />
           </Sequence>
         </Sequence>
       </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
