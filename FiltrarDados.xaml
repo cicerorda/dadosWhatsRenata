@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="FiltrarDados" sap:VirtualizedContainerService.HintSize="1240,1892" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="FiltrarDados" sap:VirtualizedContainerService.HintSize="1240,2473" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:uascw="clr-namespace:UiPath.Activities.System.Compression.Workflow;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -38,6 +38,10 @@
       <x:String>System.Linq</x:String>
       <x:String>System.Xml</x:String>
       <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Activities.System.Compression.Zip</x:String>
+      <x:String>UiPath.Activities.System.Encode</x:String>
+      <x:String>UiPath.Activities.System.Compression.Workflow</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -86,13 +90,13 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="558,1787" sap2010:WorkflowViewState.IdRef="Sequence_31">
+  <Sequence sap:VirtualizedContainerService.HintSize="558,2408" sap2010:WorkflowViewState.IdRef="Sequence_31">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Filtror dados" sap:VirtualizedContainerService.HintSize="496,1665" sap2010:WorkflowViewState.IdRef="Sequence_30">
+    <Sequence sap2010:Annotation.AnnotationText="Filtror dados" sap:VirtualizedContainerService.HintSize="496,2286" sap2010:WorkflowViewState.IdRef="Sequence_30">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dt_dados" />
       </Sequence.Variables>
@@ -105,15 +109,15 @@
       <ui:ReadCsvFile DataTable="[dt_dados]" Delimitator="Comma" DisplayName="Read CSV" FilePath="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2" />
       <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
         <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,295" sap2010:WorkflowViewState.IdRef="Sequence_32">
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="534,512" sap2010:WorkflowViewState.IdRef="Sequence_32">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,184" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="472,399" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
-                <ui:ReadCsvFile DataTable="[dt_dados]" Delimitator="Comma" DisplayName="Read CSV" FilePath="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" sap:VirtualizedContainerService.HintSize="434,153" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
+                <ui:ReadCsvFile DataTable="[dt_dados]" Delimitator="Comma" DisplayName="Read CSV" FilePath="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
               </TryCatch.Try>
               <TryCatch.Catches>
                 <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
@@ -236,12 +240,30 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:FilterDataTable>
+      <ui:SortDataTable ColumnName="{x:Null}" DataColumn="{x:Null}" ColumnIndex="[22]" DataTable="[dt_dados]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[dt_dados]" SortOrder="Descending" />
       <ui:WriteCsvFile AddHeaders="True" DataTable="[dt_dados]" Delimitator="Semicolon" DisplayName="Write CSV" FilePath="\\nas01\consorcio\publico\Administradora de Consórcios\Controles Internos\IV - Estrutura Operacional\Área Técnica\Automação RPA\RPA Dados Whats Renata\SDGrRelatorioAcompanhamentoWorkflow.csv" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="WriteCsvFile_2" ShouldQuote="True" />
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExcelPorPessoa.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ExcelPorPessoa.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
+      <uascw:CompressFiles CompressedFileInfo="{x:Null}" CompressedResource="{x:Null}" Password="{x:Null}" ResourcesToArchive="{x:Null}" SecurePassword="{x:Null}" CodePage="Default" CompressedFileName="exelsZip" CompressionLevel="Normal" DisplayName="Compress/Zip Files" EncryptionAlgorithm="Classic" sap:VirtualizedContainerService.HintSize="434,223" sap2010:WorkflowViewState.IdRef="CompressFiles_1" OverrideExistingFile="True">
+        <uascw:CompressFiles.ContentToArchive>
+          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+            <InArgument x:TypeArguments="x:String">excels</InArgument>
+          </scg:List>
+        </uascw:CompressFiles.ContentToArchive>
+      </uascw:CompressFiles>
+      <ui:SendExchangeMail Bcc="{x:Null}" Cc="{x:Null}" EmailAutodiscover="{x:Null}" MailMessage="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Enviar email de aviso" ApplicationId="2abead93-2925-4927-a0d2-bb0c948f8808" AuthenticationMode="UserNameAndPassword" Body="Segue em anexo os dados solicitado" DirectoryId="3223964c-6e1f-48ba-b705-423351281a8c" DisplayName="Send Exchange Mail Message" Domain="sicredi.com.br" ExchangeVersion="Exchange2013_SP1" From="ocorrencias_formalistica@sicredi.com.br" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="SendExchangeMail_1" IsBodyHtml="True" IsDraft="False" Name="Consócrio Sicredi" Password="Ci15ro04an99%" SaveCopy="False" Server="[“https://outlook.office365.com/EWS/Exchange.asmx”]" Subject="Relatorio Whats - Processos" To="andrade_cicero@sicredi.com.br;borges_gabriel@sicredi.com.br" User="app_consorcios_login@sicredi.com.br">
+        <ui:SendExchangeMail.Files>
+          <InArgument x:TypeArguments="x:String">exelsZip.zip</InArgument>
+        </ui:SendExchangeMail.Files>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:SendExchangeMail>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="FiltrarAtividadesProcessos.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="FiltrarAtividadesProcessos.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
